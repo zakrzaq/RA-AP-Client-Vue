@@ -3,7 +3,7 @@ export interface ClientResponse {
   output: string[];
 }
 
-const apiUrl = 'http://localhost:5000';
+const apiUrl = "http://localhost:5000";
 
 export const fetchClientData = async (request: string) => {
   const response = await fetch(`${apiUrl}${request}`);
@@ -13,9 +13,8 @@ export const fetchClientData = async (request: string) => {
 
 export const postClientData = async (request: string) => {
   const response = await fetch(`${apiUrl}${request}`, {
-    method: 'POST',
+    method: "POST",
   });
   const data: ClientResponse[] = await response.json();
   return data;
 };
-

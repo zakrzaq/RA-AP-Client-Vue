@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import { ref } from 'vue';
-import { RouterLink } from "vue-router"
+import { ref } from "vue";
+import { RouterLink } from "vue-router";
 
-const isOpen = ref(false)
+const isOpen = ref(false);
 
-const toggleMenu = () => isOpen.value = !isOpen.value
+const toggleMenu = () => (isOpen.value = !isOpen.value);
 </script>
 
 <template>
@@ -17,19 +17,13 @@ const toggleMenu = () => isOpen.value = !isOpen.value
   <nav class="menu" :class="isOpen ? 'open' : ''">
     <ul>
       <li>
-        <RouterLink to="/" @click="toggleMenu">
-          Home
-        </RouterLink>
+        <RouterLink to="/" @click="toggleMenu"> Home </RouterLink>
       </li>
       <li>
-        <RouterLink to="/log" @click="toggleMenu">
-          Log
-        </RouterLink>
+        <RouterLink to="/log" @click="toggleMenu"> Log </RouterLink>
       </li>
       <li>
-        <RouterLink to="/history" @click="toggleMenu">
-          History
-        </RouterLink>
+        <RouterLink to="/history" @click="toggleMenu"> History </RouterLink>
       </li>
     </ul>
   </nav>
@@ -54,7 +48,9 @@ const toggleMenu = () => isOpen.value = !isOpen.value
   height: 2px;
   background: #fff;
   margin-bottom: 4px;
-  transition: transform 0.3s, opacity 0.3s;
+  transition:
+    transform 0.3s,
+    opacity 0.3s;
 }
 
 .open1 {
@@ -79,7 +75,9 @@ const toggleMenu = () => isOpen.value = !isOpen.value
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   transform: translateY(-250%);
   opacity: 0;
-  transition: transform 0.3s, opacity 0.3s;
+  transition:
+    transform 0.3s,
+    opacity 0.3s;
   border-top: solid 1px #fff;
 }
 
@@ -113,5 +111,4 @@ const toggleMenu = () => isOpen.value = !isOpen.value
   color: $light-gray;
   text-decoration: underline;
 }
-
 </style>

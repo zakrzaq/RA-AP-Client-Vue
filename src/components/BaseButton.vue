@@ -1,35 +1,43 @@
 <script setup lang="ts">
-import { computed } from 'vue';
+import { computed } from "vue";
+
+export interface NamedRoute {
+  name: string;
+}
 
 const props = withDefaults(
   defineProps<{
-    to?: string,
-    color: string,
-    size?: string,
+    to?: string | null | NamedRoute;
+    href?: string | null;
+    color?: "red" | "blue" | "green" | "orange" | "gray";
+    size?: "small" | null;
   }>(),
   {
-    color: "blue"
-  }
+    color: "blue",
+    to: null,
+    href: null,
+    size: null,
+  },
 );
 
 const emit = defineEmits<{
-  (e: "click", value: any): void
-}>()
+  (e: "click", value: Event): void; // eslint-disable-line
+}>();
 
 const componentType = computed(() => {
-  if (props.to) {
-    return (typeof props.to === 'string') ? 'a' : 'RouterLink'
-  }
-  return 'button'
-})
-
+  if (props.to) "RouterLink";
+  if (props.href) "a";
+  return "button";
+});
 </script>
 
 <template>
-  <component 
+  <component
     :is="componentType"
     class="button"
     :class="[`button--${props.color}`, props.size ? 'button--small' : null]"
+    :href="props.href"
+    :to="props.to"
     @click="emit('click', $event)"
   >
     <slot />
@@ -45,8 +53,7 @@ const componentType = computed(() => {
   border-radius: 8px;
   border: 1px solid $blue;
   transition: 0.3s;
-  display: block;
-  width: 100%;
+  display: inline;
   text-align: center;
 
   &:hover {
@@ -84,7 +91,6 @@ const componentType = computed(() => {
     }
   }
 
-
   &--green {
     background-color: $green;
     border: 1px solid $green;
@@ -105,9 +111,6 @@ const componentType = computed(() => {
       background-color: $white;
       color: $v-dark-gray;
     }
-
   }
-
 }
 </style>
-

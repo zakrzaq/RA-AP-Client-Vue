@@ -1,12 +1,14 @@
-<template>
-  <h1>Home page</h1>
-</template>
-
 <script setup lang="ts">
-
+import MessageOutput from "@/components/Home/MessageOutput.vue";
+import SapLinks from "@/components/Home/SapLinks.vue";
+import HomeMenu from "@/components/Home/HomeMenu.vue";
 </script>
 
-<style scoped lang="scss">
+<template>
+  <h1>Home page</h1>
+  <MessageOutput />
+  <SapLinks />
+  <HomeMenu />
+</template>
 
-</style>
-
+<style scoped lang="scss"></style>

@@ -1,17 +1,17 @@
 <script setup lang="ts">
 import { computed } from "vue";
-import { useRouter } from "vue-router"
+import { useRouter } from "vue-router";
 import HamburgerMenu from "./HamburgerMenu.vue";
 
-const router = useRouter()
+const router = useRouter();
 
-const routePath = computed(() => router.currentRoute.value.path)
+const routePath = computed(() => router.currentRoute.value.path);
 const appTitle = computed(() => {
-  if (routePath.value === '/') return 'Main Menu'
-  if (routePath.value === '/log') return 'AP Log'
-  if (routePath.value === '/history') return 'Action History'
-  return routePath.value
-})
+  if (routePath.value === "/") return "Main Menu";
+  if (routePath.value === "/log") return "AP Log";
+  if (routePath.value === "/history") return "Action History";
+  return routePath.value;
+});
 </script>
 
 <template>
