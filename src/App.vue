@@ -1,9 +1,8 @@
 <script setup lang="ts">
-import HelloWorld from "./components/HelloWorld.vue";
 </script>
 
 <template>
-  <HelloWorld />
+  <h1>APMM</h1>
 </template>
 
 <style scoped></style>
