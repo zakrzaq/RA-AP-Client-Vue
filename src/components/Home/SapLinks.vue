@@ -3,7 +3,7 @@ import { sapLinks } from "@/data/sapLinks";
 import { useStore } from "@/state";
 import BaseButton from "@/components/BaseButton.vue";
 
-const store = useStore()
+const store = useStore();
 </script>
 
 <template>

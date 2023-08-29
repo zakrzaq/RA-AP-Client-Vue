@@ -33,9 +33,9 @@ const componentType = computed(() => {
 });
 
 const buttonWidth = computed(() => {
-  if (props.width === 'full') return '100%'
-  return 'unset'
-})
+  if (props.width === "full") return "100%";
+  return "unset";
+});
 </script>
 
 <template>
@@ -62,7 +62,7 @@ const buttonWidth = computed(() => {
   transition: 0.3s;
   display: inline;
   text-align: center;
-  width: v-bind('buttonWidth');
+  width: v-bind("buttonWidth");
 
   &:hover {
     background-color: $white;

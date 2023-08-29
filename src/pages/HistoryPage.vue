@@ -50,7 +50,12 @@ watch(date, (newVal) => {
   <div v-else-if="log.length > 0">
     <HistoryItem v-for="item in log" :key="item.timestamp" :item="item" />
   </div>
-  <ErrorMessage v-else type="warn" message="No results for this day" :button="false" />
+  <ErrorMessage
+    v-else
+    type="warn"
+    message="No results for this day"
+    :button="false"
+  />
 </template>
 
 <style scoped lang="scss">
@@ -59,7 +64,7 @@ watch(date, (newVal) => {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 15px 0;;
+    margin: 15px 0;
   }
   &__actions {
     display: flex;

@@ -57,8 +57,7 @@ const toggleCollapsed = () => (collapsed.value = !collapsed.value);
     font-size: 16px;
     font-weight: 600;
     padding: 10px 0;
-    color: $secondary
-
+    color: $secondary;
   }
   &__p {
     margin: 0;

@@ -10,12 +10,12 @@ const props = withDefaults(
   }>(),
   {
     button: true,
-  }
+  },
 );
 
 const store = useStore();
 
-const messageType = computed(() => `error-message--${props.type}`)
+const messageType = computed(() => `error-message--${props.type}`);
 
 const handleClose = () => {
   store.resetClientData();

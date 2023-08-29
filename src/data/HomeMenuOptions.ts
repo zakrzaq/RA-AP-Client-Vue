@@ -7,9 +7,24 @@ export interface HomeMenuOption {
 
 export const amOptions: HomeMenuOption[] = [
   { id: 1, url: "/requests", label: "Get current requests", color: "primary" },
-  { id: 2, url: "/mif_soerf", label: "Generate MIF / SOERF requests", color: "primary" },
-  { id: 3, url: "/am_status", label: "Update Material Statuses pre MM", color: "primary" },
-  { id: 4, url: "/am_emails", label: "Generate AM Price & PCE requests", color: "primary" },
+  {
+    id: 2,
+    url: "/mif_soerf",
+    label: "Generate MIF / SOERF requests",
+    color: "primary",
+  },
+  {
+    id: 3,
+    url: "/am_status",
+    label: "Update Material Statuses pre MM",
+    color: "primary",
+  },
+  {
+    id: 4,
+    url: "/am_emails",
+    label: "Generate AM Price & PCE requests",
+    color: "primary",
+  },
 ];
 
 export const pmOptions: HomeMenuOption[] = [
@@ -34,7 +49,12 @@ export const pmOptions: HomeMenuOption[] = [
 ];
 
 export const utilOptions: HomeMenuOption[] = [
-  { id: 1, url: "/get_sap_data", label: "Download SAP Data", color: "tertiary" },
+  {
+    id: 1,
+    url: "/get_sap_data",
+    label: "Download SAP Data",
+    color: "tertiary",
+  },
   { id: 2, url: "/proc_sap_data", label: "Bring SAP Data", color: "tertiary" },
   {
     id: 3,

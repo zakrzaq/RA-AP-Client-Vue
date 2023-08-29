@@ -18,7 +18,11 @@ const store = useStore();
         {{ line }}
       </p>
     </div>
-    <BaseButton v-if="store.hasResults" @click="store.resetClientData">
+    <BaseButton
+      v-if="store.hasResults"
+      color="tertiary"
+      @click="store.resetClientData"
+    >
       Return
     </BaseButton>
   </div>
@@ -33,9 +37,9 @@ const store = useStore();
   background-color: $secondary;
   color: white;
   border-radius: 12px;
-  padding: 15px;
+  padding: 8px 15px;
   font-family: "Lucida Console", "Courier New", monospace;
-  margin: 40px 0 10px;
+  margin: 40px 0 15px;
   font-size: 12px;
 }
 
