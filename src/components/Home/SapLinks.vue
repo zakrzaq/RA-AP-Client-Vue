@@ -1,7 +1,9 @@
 <script setup lang="ts">
 import { sapLinks } from "@/data/sapLinks";
-import { fetchClientData } from "@/api";
+import { useStore } from "@/state";
 import BaseButton from "@/components/BaseButton.vue";
+
+const store = useStore()
 </script>
 
 <template>
@@ -11,7 +13,7 @@ import BaseButton from "@/components/BaseButton.vue";
       :key="opt.id"
       :color="opt.color"
       size="small"
-      @click="fetchClientData(opt.url)"
+      @click="store.getClientData(opt.url)"
     >
       {{ opt.label }}
     </BaseButton>
@@ -24,5 +26,6 @@ import BaseButton from "@/components/BaseButton.vue";
   flex-wrap: wrap;
   justify-content: center;
   gap: 12px;
+  padding: 20px 0;
 }
 </style>

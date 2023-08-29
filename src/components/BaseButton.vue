@@ -9,17 +9,19 @@ const props = withDefaults(
   defineProps<{
     to?: string | null | NamedRoute;
     href?: string | null;
-    color?: "red" | "blue" | "green" | "orange" | "gray";
+    // color?: "red" | "blue" | "green" | "orange" | "gray";
+    color?: "primary" | "secondary" | "tertiary" | "quaternary";
     size?: "small" | null;
+    width?: null | "full";
   }>(),
   {
-    color: "blue",
+    color: "primary",
     to: null,
     href: null,
     size: null,
+    width: null,
   },
 );
-
 const emit = defineEmits<{
   (e: "click", value: Event): void; // eslint-disable-line
 }>();
@@ -29,6 +31,11 @@ const componentType = computed(() => {
   if (props.href) "a";
   return "button";
 });
+
+const buttonWidth = computed(() => {
+  if (props.width === 'full') return '100%'
+  return 'unset'
+})
 </script>
 
 <template>
@@ -55,6 +62,7 @@ const componentType = computed(() => {
   transition: 0.3s;
   display: inline;
   text-align: center;
+  width: v-bind('buttonWidth');
 
   &:hover {
     background-color: $white;
@@ -69,47 +77,47 @@ const componentType = computed(() => {
     max-height: 26px;
   }
 
-  &--orange {
-    background-color: $orange;
-    border: 1px solid $orange;
+  &--primary {
+    background-color: $primary;
+    border: 1px solid $primary;
     color: $white;
 
     &:hover {
       background-color: $white;
-      color: $orange;
+      color: $primary;
     }
   }
 
-  &--red {
-    background-color: $red;
-    border: 1px solid $red;
+  &--secondary {
+    background-color: $secondary;
+    border: 1px solid $secondary;
     color: $white;
 
     &:hover {
       background-color: $white;
-      color: $red;
+      color: $secondary;
     }
   }
 
-  &--green {
-    background-color: $green;
-    border: 1px solid $green;
+  &--tertiary {
+    background-color: $tertiary;
+    border: 1px solid $tertiary;
     color: $white;
 
     &:hover {
       background-color: $white;
-      color: $green;
+      color: $tertiary;
     }
   }
 
-  &--gray {
-    background-color: $v-dark-gray;
+  &--quaternary {
+    background-color: $quaternary;
+    border: 1px solid $quaternary;
     color: $white;
-    border: 1px solid $v-dark-gray;
 
     &:hover {
       background-color: $white;
-      color: $v-dark-gray;
+      color: $quaternary;
     }
   }
 }

@@ -4,6 +4,7 @@ import { fetchClientData } from "@/api";
 import BaseButton from "../components/BaseButton.vue";
 import BaseLoader from "../components/BaseLoader.vue";
 import HistoryItem from "../components/History/HistoryItem.vue";
+import ErrorMessage from "../components/ErrorMessage.vue";
 
 const today = new Date();
 const date = ref(today);
@@ -39,16 +40,17 @@ watch(date, (newVal) => {
 <template>
   <div class="history-page__controlls">
     <div class="history-page__actions">
-      <BaseButton @click="addDays(1, false)">Back</BaseButton>
-      <BaseButton @click="date = today">Today</BaseButton>
-      <BaseButton @click="addDays()">Forward</BaseButton>
+      <BaseButton color="secondary" @click="addDays(1, false)">Back</BaseButton>
+      <BaseButton color="tertiary" @click="date = today">Today</BaseButton>
+      <BaseButton color="secondary" @click="addDays()">Forward</BaseButton>
     </div>
-    <h2>{{ date.toLocaleDateString("en-GB") }}</h2>
+    <h2 class="history-page__title">{{ date.toLocaleDateString("en-GB") }}</h2>
   </div>
   <BaseLoader v-if="loading" />
-  <div>
+  <div v-else-if="log.length > 0">
     <HistoryItem v-for="item in log" :key="item.timestamp" :item="item" />
   </div>
+  <ErrorMessage v-else type="warn" message="No results for this day" :button="false" />
 </template>
 
 <style scoped lang="scss">
@@ -57,10 +59,14 @@ watch(date, (newVal) => {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin: 15px 0;;
   }
   &__actions {
     display: flex;
     gap: 10px;
+  }
+  &__title {
+    color: $primary;
   }
 }
 </style>

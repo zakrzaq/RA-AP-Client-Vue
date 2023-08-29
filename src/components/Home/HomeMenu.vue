@@ -3,7 +3,7 @@ import { amOptions, pmOptions, utilOptions } from "@/data/HomeMenuOptions";
 import { useStore } from "@/state";
 import BaseButton from "@/components/BaseButton.vue";
 
-const store = useStore()
+const store = useStore();
 </script>
 
 <template>
@@ -13,6 +13,8 @@ const store = useStore()
       <BaseButton
         v-for="opt in amOptions"
         :key="opt.id"
+        width="full"
+        :color="opt.color"
         @click="store.getClientData(opt.url)"
         >{{ opt.label }}</BaseButton
       >
@@ -22,6 +24,8 @@ const store = useStore()
       <BaseButton
         v-for="opt in pmOptions"
         :key="opt.id"
+        width="full"
+        :color="opt.color"
         @click="store.getClientData(opt.url)"
         >{{ opt.label }}</BaseButton
       >
@@ -31,9 +35,26 @@ const store = useStore()
       <BaseButton
         v-for="opt in utilOptions"
         :key="opt.id"
+        width="full"
+        :color="opt.color"
         @click="store.getClientData(opt.url)"
         >{{ opt.label }}</BaseButton
       >
     </div>
   </div>
 </template>
+
+<style scoped lang="scss">
+.menu-options {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  &__column {
+    width: 32%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+}
+</style>

@@ -40,7 +40,7 @@ const appTitle = computed(() => {
   display: flex;
   justify-content: space-around;
   gap: 20px;
-  background-color: $blue;
+  background-color: $primary;
   color: $white;
   box-shadow: $shadd;
 

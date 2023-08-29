@@ -71,14 +71,14 @@ const toggleMenu = () => (isOpen.value = !isOpen.value);
   left: 0;
   width: 100%;
   padding: 16px;
-  background: $blue;
+  background: $primary;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   transform: translateY(-250%);
   opacity: 0;
   transition:
     transform 0.3s,
     opacity 0.3s;
-  border-top: solid 1px #fff;
+  border-top: solid 1px $secondary;
 }
 
 .open.menu {

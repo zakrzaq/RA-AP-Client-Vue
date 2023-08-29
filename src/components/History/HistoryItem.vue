@@ -19,18 +19,20 @@ const toggleCollapsed = () => (collapsed.value = !collapsed.value);
 <template>
   <div v-if="!!item" class="history-item">
     <div class="history-item__title">
-      <p>{{ item.timestamp }}</p>
-      <p>{{ item.script }}</p>
+      <p class="history-item__p">{{ item.timestamp }}</p>
+      <p class="history-item__p">{{ item.script }}</p>
     </div>
-    <ul
-      v-if="!collapsed"
-      class="history-item__messages"
-      @click="toggleCollapsed"
-    >
-      <li v-for="(message, index) in item.messages" :key="index">
-        {{ message }}
-      </li>
-    </ul>
+    <Transition>
+      <ul
+        v-if="!collapsed"
+        class="history-item__messages"
+        @click="toggleCollapsed"
+      >
+        <li v-for="(message, index) in item.messages" :key="index">
+          {{ message }}
+        </li>
+      </ul>
+    </Transition>
     <div class="history-item__expand" @click="toggleCollapsed">
       <div class="circle-icon">
         <i v-if="collapsed" class="gg-chevron-down"></i>
@@ -42,23 +44,24 @@ const toggleCollapsed = () => (collapsed.value = !collapsed.value);
 
 <style scoped lang="scss">
 .history-item {
-  background: $light-gray;
+  background: transparent;
   border-radius: 10px;
-  border: 1px solid $v-dark-gray;
+  border: 1px solid $quaternary;
   padding: 5px 20px;
   margin-bottom: 20px;
+  transition: all 0.5s;
 
   &__title {
     display: flex;
     justify-content: space-between;
     font-size: 16px;
     font-weight: 600;
-    padding-top: 10px;
-    padding-bottom: 5px;
+    padding: 10px 0;
+    color: $secondary
 
-    & p {
-      margin: 0;
-    }
+  }
+  &__p {
+    margin: 0;
   }
   &__expand {
     display: flex;
@@ -67,12 +70,10 @@ const toggleCollapsed = () => (collapsed.value = !collapsed.value);
     cursor: pointer;
   }
   &__messages {
-    background: $v-dark-gray;
-    color: $light-gray;
+    background: $secondary;
+    color: white;
     padding: 15px;
     border-radius: 10px;
-    cursor: pointer;
-
     & li {
       list-style-type: none;
       line-height: 200%;
@@ -80,14 +81,15 @@ const toggleCollapsed = () => (collapsed.value = !collapsed.value);
   }
 
   & .circle-icon {
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
     display: flex;
     justify-content: center;
     align-items: center;
-    background: $light-gray;
-    border: 1px solid $light-gray;
+    background: $tertiary;
+    border: 1px solid $quaternary;
     border-radius: 50%;
+    margin-bottom: 10px;
   }
 }
 
@@ -100,6 +102,7 @@ const toggleCollapsed = () => (collapsed.value = !collapsed.value);
   height: 22px;
   border: 2px solid transparent;
   border-radius: 100px;
+  color: $quaternary;
 }
 .gg-chevron-down::after {
   content: "";
@@ -113,6 +116,7 @@ const toggleCollapsed = () => (collapsed.value = !collapsed.value);
   transform: rotate(45deg);
   left: 4px;
   top: 2px;
+  transition: all 0.5s;
 }
 
 .gg-chevron-up {
@@ -124,6 +128,7 @@ const toggleCollapsed = () => (collapsed.value = !collapsed.value);
   height: 22px;
   border: 2px solid transparent;
   border-radius: 100px;
+  color: $quaternary;
 }
 .gg-chevron-up::after {
   content: "";
@@ -137,5 +142,6 @@ const toggleCollapsed = () => (collapsed.value = !collapsed.value);
   transform: rotate(-45deg);
   left: 4px;
   bottom: 2px;
+  transition: all 0.5s;
 }
 </style>

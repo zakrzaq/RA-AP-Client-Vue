@@ -8,8 +8,8 @@ const store = useStore();
 </script>
 
 <template>
-  <div>
-    <ErrorMessage v-if="!!store.error" message="{store.error}" />
+  <div class="output">
+    <ErrorMessage v-if="!!store.error" message="{store.error}" type="error" />
     <div v-else-if="store.loading" class="code-output">
       <BaseLoader />
     </div>
@@ -18,20 +18,24 @@ const store = useStore();
         {{ line }}
       </p>
     </div>
-    <BaseButton v-if="store.hasResults" :to="{ name: 'HomePage' }">
+    <BaseButton v-if="store.hasResults" @click="store.resetClientData">
       Return
     </BaseButton>
   </div>
 </template>
 
 <style scoped lang="scss">
+.output {
+  margin-bottom: 30px;
+}
+
 .code-output {
-  background-color: $v-dark-gray;
-  color: $light-gray;
+  background-color: $secondary;
+  color: white;
   border-radius: 12px;
   padding: 15px;
   font-family: "Lucida Console", "Courier New", monospace;
-  margin: 40px 0 60px;
+  margin: 40px 0 10px;
   font-size: 12px;
 }
 
