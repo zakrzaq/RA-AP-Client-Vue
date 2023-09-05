@@ -12,3 +12,14 @@ $primary: #2d4356;
 $secondary: #435b66;
 $tertiary: #a76f6f;
 $quaternary: #eab2a0;
+$quaternary02: #eab2a014;
+
+// GRADIENTS
+$gradient-stripes-tertiary: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 10px,
+    $quaternary02 10px,
+    $quaternary02 15px
+);
+

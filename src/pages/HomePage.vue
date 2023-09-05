@@ -5,9 +5,11 @@ import HomeMenu from "@/components/Home/HomeMenu.vue";
 </script>
 
 <template>
-  <SapLinks />
-  <MessageOutput />
-  <HomeMenu />
+  <div class="home">
+    <SapLinks />
+    <MessageOutput />
+    <HomeMenu />
+  </div>
 </template>
 
 <style scoped lang="scss"></style>

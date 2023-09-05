@@ -44,12 +44,24 @@ const toggleCollapsed = () => (collapsed.value = !collapsed.value);
 
 <style scoped lang="scss">
 .history-item {
-  background: transparent;
-  border-radius: 10px;
   border: 1px solid $quaternary;
+  border-radius: 10px;
   padding: 5px 20px;
-  margin-bottom: 20px;
+  margin-bottom: 20px; 
   transition: all 0.5s;
+  position: relative;
+  z-index: 1000;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: $gradient-stripes-tertiary;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+  }
 
   &__title {
     display: flex;
@@ -61,6 +73,11 @@ const toggleCollapsed = () => (collapsed.value = !collapsed.value);
   }
   &__p {
     margin: 0;
+    background: white;
+    border-radius: 6px;
+    padding: 4px 8px ;
+    border-bottom: 1px solid $secondary;
+    border-left: 1px solid $secondary;
   }
   &__expand {
     display: flex;

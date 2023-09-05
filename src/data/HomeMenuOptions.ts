@@ -75,3 +75,24 @@ export const utilOptions: HomeMenuOption[] = [
     color: "quaternary",
   },
 ];
+
+export const devOptions: HomeMenuOption[] = [
+  {
+    id: 1,
+    url: "/run_a1",
+    label: "Run A1",
+    color: "primary",
+  },
+  {
+    id: 2,
+    url: "/run_a2",
+    label: "Run A2",
+    color: "primary",
+  },
+  {
+    id: 3,
+    url: "/run_pm",
+    label: "Run PM",
+    color: "primary",
+  },
+];

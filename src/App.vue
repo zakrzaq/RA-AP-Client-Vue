@@ -9,4 +9,5 @@ import Header from "@/components/BaseHeader.vue";
   </main>
 </template>
 
-<style scoped></style>
+<style scoped lang="scss">
+</style>

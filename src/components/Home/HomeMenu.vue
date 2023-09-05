@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { amOptions, pmOptions, utilOptions } from "@/data/HomeMenuOptions";
+import { amOptions, pmOptions, utilOptions, devOptions } from "@/data/HomeMenuOptions";
 import { useStore } from "@/state";
 import BaseButton from "@/components/BaseButton.vue";
 
@@ -41,6 +41,17 @@ const store = useStore();
         >{{ opt.label }}</BaseButton
       >
     </div>
+    <div class="menu-options__column">
+      <h3>In developement:</h3>
+      <BaseButton
+        v-for="opt in devOptions"
+        :key="opt.id"
+        width="full"
+        :color="opt.color"
+        @click="store.getClientData(opt.url)"
+        >{{ opt.label }}</BaseButton
+      >
+    </div>
   </div>
 </template>
 
@@ -49,6 +60,7 @@ const store = useStore();
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  gap: 15px;
 
   @include md {
     flex-direction: column;
