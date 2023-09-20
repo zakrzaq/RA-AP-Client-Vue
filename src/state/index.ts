@@ -32,6 +32,7 @@ export const useStore = defineStore("store", {
       this.loading = true;
       this.script = "...";
       this.output = [];
+      window.scroll(0, 0)
       try {
         const { script, output } = await postClientData(url);
         this.script = script;
